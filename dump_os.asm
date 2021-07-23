@@ -1,153 +1,100 @@
 
-target/riscv64gc-unknown-none-elf/debug/os:	file format elf64-littleriscv
+target/riscv64gc-unknown-none-elf/release/os：     文件格式 elf64-littleriscv
 
 
 Disassembly of section .text:
 
-000000000001112e <_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$3len17hd052c4639634279bE>:
-;     pub const fn len(&self) -> usize {
-   1112e: 01 11        	addi	sp, sp, -32
-   11130: 2a e8        	sd	a0, 16(sp)
-   11132: 2e ec        	sd	a1, 24(sp)
-;         unsafe { crate::ptr::Repr { rust: self }.raw.len }
-   11134: 2a e0        	sd	a0, 0(sp)
-   11136: 2e e4        	sd	a1, 8(sp)
-;     }
-   11138: 2e 85        	add	a0, zero, a1
-   1113a: 05 61        	addi	sp, sp, 32
-   1113c: 82 80        	ret
+0000000080200000 <_start>:
+    80200000:	1141                	addi	sp,sp,-16
+    80200002:	e406                	sd	ra,8(sp)
+    80200004:	e022                	sd	s0,0(sp)
+    80200006:	0800                	addi	s0,sp,16
+    80200008:	00000097          	auipc	ra,0x0
+    8020000c:	014080e7          	jalr	20(ra) # 8020001c <_ZN2os8shutdown17h1512eadb59589f93E>
+	...
 
-000000000001113e <_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6as_ptr17hbf34b8bdf853e594E>:
-;     pub const fn as_ptr(&self) -> *const T {
-   1113e: 41 11        	addi	sp, sp, -16
-   11140: 2a e0        	sd	a0, 0(sp)
-   11142: 2e e4        	sd	a1, 8(sp)
-;     }
-   11144: 41 01        	addi	sp, sp, 16
-   11146: 82 80        	ret
+0000000080200012 <rust_begin_unwind>:
+    80200012:	1141                	addi	sp,sp,-16
+    80200014:	e406                	sd	ra,8(sp)
+    80200016:	e022                	sd	s0,0(sp)
+    80200018:	0800                	addi	s0,sp,16
+    8020001a:	a001                	j	8020001a <rust_begin_unwind+0x8>
 
-0000000000011148 <_ZN2os9sys_write17h5969d21bdbbceb90E>:
-; 
-   11148: 59 71        	addi	sp, sp, -112
-   1114a: 86 f4        	sd	ra, 104(sp)
-   1114c: aa e8        	sd	a0, 80(sp)
-   1114e: ae ec        	sd	a1, 88(sp)
-   11150: b2 f0        	sd	a2, 96(sp)
-; const SYSCALL_EXIT: usize = 93;
-   11152: 2a f8        	sd	a0, 48(sp)
-   11154: 2e 85        	add	a0, zero, a1
-   11156: 2e f4        	sd	a1, 40(sp)
-   11158: b2 85        	add	a1, zero, a2
-   1115a: 32 f0        	sd	a2, 32(sp)
-   1115c: 97 00 00 00  	auipc	ra, 0
-   11160: e7 80 20 fe  	jalr	-30(ra)
-   11164: 2a ec        	sd	a0, 24(sp)
-   11166: 09 a0        	j	2 <_ZN2os9sys_write17h5969d21bdbbceb90E+0x20>
-   11168: 62 65        	ld	a0, 24(sp)
-   1116a: a2 75        	ld	a1, 40(sp)
-   1116c: 2a e8        	sd	a0, 16(sp)
-   1116e: 2e 85        	add	a0, zero, a1
-   11170: 82 75        	ld	a1, 32(sp)
-   11172: 97 00 00 00  	auipc	ra, 0
-   11176: e7 80 c0 fb  	jalr	-68(ra)
-   1117a: 2a e4        	sd	a0, 8(sp)
-   1117c: 09 a0        	j	2 <_ZN2os9sys_write17h5969d21bdbbceb90E+0x36>
-   1117e: 42 75        	ld	a0, 48(sp)
-   11180: 2a fc        	sd	a0, 56(sp)
-   11182: c2 65        	ld	a1, 16(sp)
-   11184: ae e0        	sd	a1, 64(sp)
-   11186: 22 66        	ld	a2, 8(sp)
-   11188: b2 e4        	sd	a2, 72(sp)
-   1118a: 13 05 00 04  	addi	a0, zero, 64
-   1118e: 2c 18        	addi	a1, sp, 56
-   11190: 97 00 00 00  	auipc	ra, 0
-   11194: e7 80 40 01  	jalr	20(ra)
-   11198: 2a e0        	sd	a0, 0(sp)
-   1119a: 09 a0        	j	2 <_ZN2os9sys_write17h5969d21bdbbceb90E+0x54>
-; const SYSCALL_WRITE: usize = 64;
-   1119c: 02 65        	ld	a0, 0(sp)
-   1119e: a6 70        	ld	ra, 104(sp)
-   111a0: 65 61        	addi	sp, sp, 112
-   111a2: 82 80        	ret
+000000008020001c <_ZN2os8shutdown17h1512eadb59589f93E>:
+    8020001c:	1141                	addi	sp,sp,-16
+    8020001e:	e406                	sd	ra,8(sp)
+    80200020:	e022                	sd	s0,0(sp)
+    80200022:	0800                	addi	s0,sp,16
+    80200024:	48a1                	li	a7,8
+    80200026:	4501                	li	a0,0
+    80200028:	4581                	li	a1,0
+    8020002a:	4601                	li	a2,0
+    8020002c:	00000073          	ecall
 
-00000000000111a4 <_ZN2os7syscall17h82feda8a60c04bc3E>:
-; pub fn print(args: fmt::Arguments) {
-   111a4: 01 11        	addi	sp, sp, -32
-   111a6: 2a ec        	sd	a0, 24(sp)  // id
-; macro_rules! print {
-   111a8: 90 61        	ld	a2, 0(a1)   // args[0]
-   111aa: 94 65        	ld	a3, 8(a1)   // args[1]
-   111ac: 8c 69        	ld	a1, 16(a1)  // args[2]
-; 
-   111ae: 2a e4        	sd	a0, 8(sp)               // id
-   111b0: 32 85        	add	a0, zero, a2   // args[0] -> x10(a0)
-   111b2: 2e e0        	sd	a1, 0(sp)              // args[2]
-   111b4: b6 85        	add	a1, zero, a3   // args[1] -> x11(a1)
-   111b6: 02 66        	ld	a2, 0(sp)               // args[2] -> 0(sp) -> x12(a2)
-   111b8: a2 68        	ld	a7, 8(sp)               // id -> x17(a7)
-   111ba: 73 00 00 00  	ecall	
-   111be: 2a e8        	sd	a0, 16(sp)           // 这步没有意义，sp+16这地址下一步就被释放，返回值存在a0
-; #[macro_export]
-   111c0: 05 61        	addi	sp, sp, 32
-   111c2: 82 80        	ret
+0000000080200030 <.LBB0_1>:
+    80200030:	00001517          	auipc	a0,0x1
+    80200034:	fd050513          	addi	a0,a0,-48 # 80201000 <etext>
 
-00000000000111c4 <_ZN2os8sys_exit17hab93f5c6dda906b9E>:
-;     ($fmt: literal $(, $($arg: tt)+)?) => {
-   111c4: 39 71        	addi	sp, sp, -64
-   111c6: 06 fc        	sd	ra, 56(sp)
-   111c8: aa 85        	add	a1, zero, a0
-   111ca: 2a da        	sw	a0, 52(sp)
-;         print(format_args!(concat!($fmt, "\n") $(, $($arg)+)?));
-   111cc: 01 25        	sext.w	a0, a0
-   111ce: 2a ec        	sd	a0, 24(sp)
-   111d0: 01 45        	mv	a0, zero
-   111d2: 2a f0        	sd	a0, 32(sp)
-   111d4: 2a f4        	sd	a0, 40(sp)
-   111d6: 13 05 d0 05  	addi	a0, zero, 93
-   111da: 30 08        	addi	a2, sp, 24
-   111dc: 2e e8        	sd	a1, 16(sp)
-   111de: b2 85        	add	a1, zero, a2
-   111e0: 97 00 00 00  	auipc	ra, 0
-   111e4: e7 80 40 fc  	jalr	-60(ra)
-   111e8: 2a e4        	sd	a0, 8(sp)
-   111ea: 09 a0        	j	2 <_ZN2os8sys_exit17hab93f5c6dda906b9E+0x28>
-;     }
-   111ec: 22 65        	ld	a0, 8(sp)
-   111ee: e2 70        	ld	ra, 56(sp)
-   111f0: 21 61        	addi	sp, sp, 64
-   111f2: 82 80        	ret
+0000000080200038 <.LBB0_2>:
+    80200038:	00001617          	auipc	a2,0x1
+    8020003c:	fe860613          	addi	a2,a2,-24 # 80201020 <.Lanon.49c9f8067fe4468184af16d7576940c9.2>
+    80200040:	45cd                	li	a1,19
+    80200042:	00000097          	auipc	ra,0x0
+    80200046:	028080e7          	jalr	40(ra) # 8020006a <_ZN4core9panicking5panic17h4214b4eed8d3f37fE>
+	...
 
-00000000000111f4 <_start>:
-; #[no_mangle]
-   111f4: 39 71        	addi	sp, sp, -64
-   111f6: 06 fc        	sd	ra, 56(sp)
+000000008020004c <_ZN4core3ptr102drop_in_place$LT$$RF$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$u8$GT$$GT$$GT$17h2c14ec9a62b1a876E>:
+    8020004c:	8082                	ret
 
-00000000000111f8 <.LBB3_4>:
-   111f8: 17 f5 ff ff  	auipc	a0, 1048575
-   111fc: 13 05 85 f2  	addi	a0, a0, -216
-   11200: 2a ec        	sd	a0, 24(sp)
-   11202: b9 45        	addi	a1, zero, 14
-   11204: 2e f0        	sd	a1, 32(sp)
-;         unsafe { mem::transmute(self) }
-   11206: 2a f4        	sd	a0, 40(sp)
-   11208: 2e f8        	sd	a1, 48(sp)
-; extern "C" fn _start() {
-   1120a: 2a e8        	sd	a0, 16(sp)
-   1120c: 2e e4        	sd	a1, 8(sp)
-   1120e: 09 a0        	j	2 <.LBB3_4+0x18>
-   11210: 05 45        	addi	a0, zero, 1
-; extern "C" fn _start() {
-   11212: c2 65        	ld	a1, 16(sp)
-   11214: 22 66        	ld	a2, 8(sp)
-   11216: 97 00 00 00  	auipc	ra, 0
-   1121a: e7 80 20 f3  	jalr	-206(ra)
-   1121e: 09 a0        	j	2 <.LBB3_4+0x28>
-   11220: 25 45        	addi	a0, zero, 9
-;     sys_write(1, "hello, rcore!\n".as_bytes());
-   11222: 97 00 00 00  	auipc	ra, 0
-   11226: e7 80 20 fa  	jalr	-94(ra)
-   1122a: 09 a0        	j	2 <.LBB3_4+0x34>
-;     sys_exit(9);
-   1122c: e2 70        	ld	ra, 56(sp)
-   1122e: 21 61        	addi	sp, sp, 64
-   11230: 82 80        	ret
+000000008020004e <_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17h7108e12ad9db6507E>:
+    8020004e:	0160f537          	lui	a0,0x160f
+    80200052:	6275051b          	addiw	a0,a0,1575
+    80200056:	0536                	slli	a0,a0,0xd
+    80200058:	3d750513          	addi	a0,a0,983 # 160f3d7 <.Lline_table_start0+0x15f252d>
+    8020005c:	0532                	slli	a0,a0,0xc
+    8020005e:	f8150513          	addi	a0,a0,-127
+    80200062:	0532                	slli	a0,a0,0xc
+    80200064:	f4250513          	addi	a0,a0,-190
+    80200068:	8082                	ret
+
+000000008020006a <_ZN4core9panicking5panic17h4214b4eed8d3f37fE>:
+    8020006a:	715d                	addi	sp,sp,-80
+    8020006c:	e486                	sd	ra,72(sp)
+    8020006e:	fc2a                	sd	a0,56(sp)
+    80200070:	e0ae                	sd	a1,64(sp)
+    80200072:	1828                	addi	a0,sp,56
+    80200074:	e42a                	sd	a0,8(sp)
+    80200076:	4505                	li	a0,1
+    80200078:	e82a                	sd	a0,16(sp)
+    8020007a:	ec02                	sd	zero,24(sp)
+
+000000008020007c <.LBB129_1>:
+    8020007c:	00001517          	auipc	a0,0x1
+    80200080:	fbc50513          	addi	a0,a0,-68 # 80201038 <.Lanon.9d4bfc86079e95d674f3cded52b1db19.179>
+    80200084:	f42a                	sd	a0,40(sp)
+    80200086:	f802                	sd	zero,48(sp)
+    80200088:	0028                	addi	a0,sp,8
+    8020008a:	85b2                	mv	a1,a2
+    8020008c:	00000097          	auipc	ra,0x0
+    80200090:	00a080e7          	jalr	10(ra) # 80200096 <_ZN4core9panicking9panic_fmt17ha4e041b5d1f17023E>
+	...
+
+0000000080200096 <_ZN4core9panicking9panic_fmt17ha4e041b5d1f17023E>:
+    80200096:	7179                	addi	sp,sp,-48
+    80200098:	f406                	sd	ra,40(sp)
+
+000000008020009a <.LBB131_1>:
+    8020009a:	00001617          	auipc	a2,0x1
+    8020009e:	f9e60613          	addi	a2,a2,-98 # 80201038 <.Lanon.9d4bfc86079e95d674f3cded52b1db19.179>
+    802000a2:	e432                	sd	a2,8(sp)
+
+00000000802000a4 <.LBB131_2>:
+    802000a4:	00001617          	auipc	a2,0x1
+    802000a8:	f9460613          	addi	a2,a2,-108 # 80201038 <.Lanon.9d4bfc86079e95d674f3cded52b1db19.179>
+    802000ac:	e832                	sd	a2,16(sp)
+    802000ae:	ec2a                	sd	a0,24(sp)
+    802000b0:	f02e                	sd	a1,32(sp)
+    802000b2:	0028                	addi	a0,sp,8
+    802000b4:	00000097          	auipc	ra,0x0
+    802000b8:	f5e080e7          	jalr	-162(ra) # 80200012 <rust_begin_unwind>
+	...
